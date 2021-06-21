@@ -84,6 +84,65 @@
       "dateCreated": "Jun 21, 2021 2:25:42 PM",
       "status": "READY",
       "progressUpdateIntervalMs": 1000
+    },
+    {
+      "text": "import pyspark\r\nfrom pyspark import SparkContext\r\nsc \u003dSparkContext()",
+      "user": "venkatram@qubole.com",
+      "dateUpdated": "Jun 21, 2021 4:07:40 PM",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {},
+        "editorMode": "ace/mode/python",
+        "hideControlBar": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "ERROR",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Fail to execute line 3: sc \u003dSparkContext()\nTraceback (most recent call last):\n  File \"/tmp/zeppelin_pyspark-4108550408991051745.py\", line 473, in \u003cmodule\u003e\n    exec(code, _zcUserQueryNameSpace)\n  File \"\u003cstdin\u003e\", line 3, in \u003cmodule\u003e\n  File \"/usr/lib/spark/python/lib/pyspark.zip/pyspark/context.py\", line 133, in __init__\n    SparkContext._ensure_initialized(self, gateway\u003dgateway, conf\u003dconf)\n  File \"/usr/lib/spark/python/lib/pyspark.zip/pyspark/context.py\", line 332, in _ensure_initialized\n    callsite.function, callsite.file, callsite.linenum))\nValueError: Cannot run multiple SparkContexts at once; existing SparkContext(app\u003dZeppelin-spark, master\u003dyarn) created by __init__ at /tmp/zeppelin_pyspark-4108550408991051745.py:385 \n"
+          }
+        ]
+      },
+      "paragraphProgress": {
+        "jobs": [],
+        "numCompletedTasks": 0,
+        "numTasks": 0,
+        "truncated": false
+      },
+      "apps": [],
+      "version": "v1",
+      "jobName": "paragraph_1624291650005_-1257294493",
+      "id": "20210621-160730_1734978660_q_PGAU5MBP321624280988",
+      "dateCreated": "Jun 21, 2021 4:07:30 PM",
+      "dateSubmitted": "Jun 21, 2021 4:07:40 PM",
+      "dateStarted": "Jun 21, 2021 4:09:07 PM",
+      "dateFinished": "Jun 21, 2021 4:09:22 PM",
+      "status": "ERROR",
+      "progressUpdateIntervalMs": 1000
+    },
+    {
+      "text": "",
+      "user": "venkatram@qubole.com",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "version": "v0",
+      "jobName": "paragraph_1624291660645_-728509226",
+      "id": "20210621-160740_621932814_q_PGAU5MBP321624280988",
+      "dateCreated": "Jun 21, 2021 4:07:40 PM",
+      "status": "READY",
+      "progressUpdateIntervalMs": 1000
     }
   ],
   "name": "run_env_zep-5083",
