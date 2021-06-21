@@ -1,0 +1,105 @@
+{
+  "paragraphs": [
+    {
+      "text": "# Load relevant libraries\r\nimport pyspark.sql.functions as f\r\nfrom pyspark.sql.types import *\r\n \r\nimport pandas as pd\r\nimport numpy as np\r\nimport statsmodels.formula.api as smf\r\nfrom sklearn import model_selection\r\nfrom sklearn.model_selection import LeaveOneGroupOut\r\nfrom statsmodels.stats.weightstats import CompareMeans\r\nfrom datetime import datetime as dt\r\nimport copy\r\nimport time",
+      "user": "venkatram@qubole.com",
+      "dateUpdated": "Jun 21, 2021 2:25:18 PM",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {},
+        "editorMode": "ace/mode/python",
+        "hideControlBar": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "version": "v1",
+      "jobName": "paragraph_1624281318598_1591617296",
+      "id": "20210621-131518_430822323_q_PGAU5MBP321624280988",
+      "dateCreated": "Jun 21, 2021 1:09:48 PM",
+      "dateSubmitted": "Jun 21, 2021 2:25:18 PM",
+      "dateStarted": "Jun 21, 2021 2:25:18 PM",
+      "dateFinished": "Jun 21, 2021 2:25:18 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 1000
+    },
+    {
+      "text": "# Load relevant libraries\n\nimport pyspark.sql.functions as f\nfrom pyspark.sql.types import *\n\nimport pandas as pd\nimport numpy as np\nimport statsmodels.formula.api as smf\nfrom sklearn import model_selection\nfrom sklearn.model_selection import LeaveOneGroupOut\nfrom statsmodels.stats.weightstats import CompareMeans\nfrom datetime import datetime as dt\nimport copy\nimport time\nimport boto3",
+      "user": "venkatram@qubole.com",
+      "dateUpdated": "Jun 21, 2021 2:25:42 PM",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {},
+        "editorMode": "ace/mode/python",
+        "hideControlBar": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "ERROR",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Fail to execute line 15: import boto3\nTraceback (most recent call last):\n  File \"/tmp/zeppelin_pyspark-1789158607854027029.py\", line 473, in \u003cmodule\u003e\n    exec(code, _zcUserQueryNameSpace)\n  File \"\u003cstdin\u003e\", line 15, in \u003cmodule\u003e\nModuleNotFoundError: No module named \u0027boto3\u0027\n"
+          }
+        ]
+      },
+      "apps": [],
+      "version": "v1",
+      "jobName": "paragraph_1624285518798_1990360944",
+      "id": "20210621-142518_851249222_q_PGAU5MBP321624280988",
+      "dateCreated": "Jun 21, 2021 2:25:18 PM",
+      "dateSubmitted": "Jun 21, 2021 2:25:42 PM",
+      "dateStarted": "Jun 21, 2021 2:25:42 PM",
+      "dateFinished": "Jun 21, 2021 2:25:42 PM",
+      "status": "ERROR",
+      "progressUpdateIntervalMs": 1000
+    },
+    {
+      "text": "",
+      "user": "venkatram@qubole.com",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "version": "v0",
+      "jobName": "paragraph_1624285542277_-1367789077",
+      "id": "20210621-142542_858626908_q_PGAU5MBP321624280988",
+      "dateCreated": "Jun 21, 2021 2:25:42 PM",
+      "status": "READY",
+      "progressUpdateIntervalMs": 1000
+    }
+  ],
+  "name": "run_env_zep-5083",
+  "id": "PGAU5MBP321624280988",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {
+    "spark:shared_process": []
+  },
+  "config": {
+    "isZeppelinNotebookCronEnable": false,
+    "isDashboard": false,
+    "defaultLang": "pyspark"
+  },
+  "info": {
+    "runAllInProgress": false
+  },
+  "source": "FCN"
+}
