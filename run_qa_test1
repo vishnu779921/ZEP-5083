@@ -1,0 +1,111 @@
+{
+  "paragraphs": [
+    {
+      "text": "# Load relevant libraries\r\nimport pyspark.sql.functions as f\r\nfrom pyspark.sql.types import *\r\n \r\nimport pandas as pd\r\nimport numpy as np\r\nimport statsmodels.formula.api as smf\r\nfrom sklearn import model_selection\r\nfrom sklearn.model_selection import LeaveOneGroupOut\r\nfrom statsmodels.stats.weightstats import CompareMeans\r\nfrom datetime import datetime as dt\r\nimport copy\r\nimport time",
+      "user": "venkatram@qubole.com",
+      "dateUpdated": "Jun 23, 2021 2:23:04 PM",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {},
+        "editorMode": "ace/mode/python",
+        "hideControlBar": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "paragraphProgress": {
+        "jobs": [],
+        "numCompletedTasks": 0,
+        "numTasks": 0,
+        "truncated": false
+      },
+      "apps": [],
+      "version": "v1",
+      "jobName": "paragraph_1624457991867_-982420785",
+      "id": "20210623-141951_723495586_q_K8DJDBTSE31624457988",
+      "dateCreated": "Jun 23, 2021 2:19:48 PM",
+      "dateSubmitted": "Jun 23, 2021 2:23:04 PM",
+      "dateStarted": "Jun 23, 2021 2:24:18 PM",
+      "dateFinished": "Jun 23, 2021 2:24:54 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 1000
+    },
+    {
+      "text": "import pyspark\r\nfrom pyspark import SparkContext\r\nsc \u003dSparkContext()",
+      "user": "venkatram@qubole.com",
+      "dateUpdated": "Jun 23, 2021 2:24:01 PM",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {},
+        "editorMode": "ace/mode/python",
+        "hideControlBar": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "ERROR",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Fail to execute line 3: sc \u003dSparkContext()\nTraceback (most recent call last):\n  File \"/tmp/zeppelin_pyspark-7744878912905900712.py\", line 473, in \u003cmodule\u003e\n    exec(code, _zcUserQueryNameSpace)\n  File \"\u003cstdin\u003e\", line 3, in \u003cmodule\u003e\n  File \"/usr/lib/spark/python/lib/pyspark.zip/pyspark/context.py\", line 133, in __init__\n    SparkContext._ensure_initialized(self, gateway\u003dgateway, conf\u003dconf)\n  File \"/usr/lib/spark/python/lib/pyspark.zip/pyspark/context.py\", line 332, in _ensure_initialized\n    callsite.function, callsite.file, callsite.linenum))\nValueError: Cannot run multiple SparkContexts at once; existing SparkContext(app\u003dZeppelin-spark, master\u003dyarn) created by __init__ at /tmp/zeppelin_pyspark-7744878912905900712.py:385 \n"
+          }
+        ]
+      },
+      "apps": [],
+      "version": "v1",
+      "jobName": "paragraph_1624458236651_1657163182",
+      "id": "20210623-142356_883075054_q_K8DJDBTSE31624457988",
+      "dateCreated": "Jun 23, 2021 2:23:56 PM",
+      "dateSubmitted": "Jun 23, 2021 2:24:19 PM",
+      "dateStarted": "Jun 23, 2021 2:24:54 PM",
+      "dateFinished": "Jun 23, 2021 2:24:54 PM",
+      "status": "ERROR",
+      "progressUpdateIntervalMs": 1000
+    },
+    {
+      "text": "",
+      "user": "venkatram@qubole.com",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "version": "v0",
+      "jobName": "paragraph_1624458184735_-2106952358",
+      "id": "20210623-142304_64398802_q_K8DJDBTSE31624457988",
+      "dateCreated": "Jun 23, 2021 2:23:04 PM",
+      "status": "READY",
+      "progressUpdateIntervalMs": 1000
+    }
+  ],
+  "name": "run_qa_test1",
+  "id": "K8DJDBTSE31624457988",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {
+    "spark:shared_process": []
+  },
+  "config": {
+    "isZeppelinNotebookCronEnable": false,
+    "isDashboard": false,
+    "defaultLang": "pyspark"
+  },
+  "info": {
+    "runAllInProgress": false
+  },
+  "source": "FCN"
+}
