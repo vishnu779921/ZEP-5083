@@ -96,9 +96,7 @@
   "id": "K8DJDBTSE31624457988",
   "noteParams": {},
   "noteForms": {},
-  "angularObjects": {
-    "spark:shared_process": []
-  },
+  "angularObjects": {},
   "config": {
     "isZeppelinNotebookCronEnable": false,
     "isDashboard": false,
