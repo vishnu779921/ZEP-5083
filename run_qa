@@ -1,0 +1,236 @@
+{
+  "paragraphs": [
+    {
+      "text": "# Load relevant libraries\r\nimport pyspark.sql.functions as f\r\nfrom pyspark.sql.types import *\r\n \r\nimport pandas as pd\r\nimport numpy as np\r\nimport statsmodels.formula.api as smf\r\nfrom sklearn import model_selection\r\nfrom sklearn.model_selection import LeaveOneGroupOut\r\nfrom statsmodels.stats.weightstats import CompareMeans\r\nfrom datetime import datetime as dt\r\nimport copy\r\nimport time",
+      "user": "venkatram@qubole.com",
+      "dateUpdated": "Jun 24, 2021 6:07:41 AM",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {},
+        "editorMode": "ace/mode/python",
+        "hideControlBar": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "paragraphProgress": {
+        "jobs": [],
+        "numCompletedTasks": 0,
+        "numTasks": 0,
+        "truncated": false
+      },
+      "apps": [],
+      "version": "v1",
+      "jobName": "paragraph_1624514802857_-2129588004",
+      "id": "20210624-060642_894759623_q_A2QES211K61624514800",
+      "dateCreated": "Jun 24, 2021 6:06:40 AM",
+      "dateSubmitted": "Jun 24, 2021 6:07:41 AM",
+      "dateStarted": "Jun 24, 2021 6:09:18 AM",
+      "dateFinished": "Jun 24, 2021 6:09:57 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 1000
+    },
+    {
+      "text": "# Define relevant inputs\ntenant \u003d z.input(\u0027tenant\u0027)\nevent_type \u003d z.input(\u0027event_type\u0027)\nevent_id \u003d z.input(\u0027event_id\u0027)\nfuel_type \u003d z.input(\u0027fuel_type\u0027)\ndevice_type \u003d z.input(\u0027device_type\u0027)\nmodel_type \u003d z.input(\u0027model_type\u0027)\nuser_type \u003d z.input(\u0027user_type\u0027)\ndb_password \u003d z.input(\u0027db_password\u0027)\n\nMIN_DEVICES \u003d 50",
+      "user": "venkatram@qubole.com",
+      "dateUpdated": "Jun 24, 2021 6:08:52 AM",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {},
+        "editorMode": "ace/mode/python",
+        "hideControlBar": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {
+          "tenant": {
+            "name": "tenant",
+            "displayName": "tenant",
+            "defaultValue": "",
+            "hidden": false
+          },
+          "event_type": {
+            "name": "event_type",
+            "displayName": "event_type",
+            "defaultValue": "",
+            "hidden": false
+          },
+          "event_id": {
+            "name": "event_id",
+            "displayName": "event_id",
+            "defaultValue": "",
+            "hidden": false
+          },
+          "fuel_type": {
+            "name": "fuel_type",
+            "displayName": "fuel_type",
+            "defaultValue": "",
+            "hidden": false
+          },
+          "device_type": {
+            "name": "device_type",
+            "displayName": "device_type",
+            "defaultValue": "",
+            "hidden": false
+          },
+          "model_type": {
+            "name": "model_type",
+            "displayName": "model_type",
+            "defaultValue": "",
+            "hidden": false
+          },
+          "user_type": {
+            "name": "user_type",
+            "displayName": "user_type",
+            "defaultValue": "",
+            "hidden": false
+          },
+          "db_password": {
+            "name": "db_password",
+            "displayName": "db_password",
+            "defaultValue": "",
+            "hidden": false
+          }
+        }
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "version": "v1",
+      "jobName": "paragraph_1624514861774_-891885227",
+      "id": "20210624-060741_951836300_q_A2QES211K61624514800",
+      "dateCreated": "Jun 24, 2021 6:07:41 AM",
+      "dateSubmitted": "Jun 24, 2021 6:09:57 AM",
+      "dateStarted": "Jun 24, 2021 6:09:57 AM",
+      "dateFinished": "Jun 24, 2021 6:09:57 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 1000
+    },
+    {
+      "text": "# Define relevant inputs\ntenant \u003d z.input(\u0027tenant\u0027)\nevent_type \u003d z.input(\u0027event_type\u0027)\nevent_id \u003d z.input(\u0027event_id\u0027)\nfuel_type \u003d z.input(\u0027fuel_type\u0027)\ndevice_type \u003d z.input(\u0027device_type\u0027)\nmodel_type \u003d z.input(\u0027model_type\u0027)\nuser_type \u003d z.input(\u0027user_type\u0027)\ndb_password \u003d z.input(\u0027db_password\u0027)\n\nMIN_DEVICES \u003d 50",
+      "user": "venkatram@qubole.com",
+      "dateUpdated": "Jun 24, 2021 6:08:37 AM",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {},
+        "editorMode": "ace/mode/python",
+        "hideControlBar": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {
+          "tenant": {
+            "name": "tenant",
+            "displayName": "tenant",
+            "defaultValue": "",
+            "hidden": false
+          },
+          "event_type": {
+            "name": "event_type",
+            "displayName": "event_type",
+            "defaultValue": "",
+            "hidden": false
+          },
+          "event_id": {
+            "name": "event_id",
+            "displayName": "event_id",
+            "defaultValue": "",
+            "hidden": false
+          },
+          "fuel_type": {
+            "name": "fuel_type",
+            "displayName": "fuel_type",
+            "defaultValue": "",
+            "hidden": false
+          },
+          "device_type": {
+            "name": "device_type",
+            "displayName": "device_type",
+            "defaultValue": "",
+            "hidden": false
+          },
+          "model_type": {
+            "name": "model_type",
+            "displayName": "model_type",
+            "defaultValue": "",
+            "hidden": false
+          },
+          "user_type": {
+            "name": "user_type",
+            "displayName": "user_type",
+            "defaultValue": "",
+            "hidden": false
+          },
+          "db_password": {
+            "name": "db_password",
+            "displayName": "db_password",
+            "defaultValue": "",
+            "hidden": false
+          }
+        }
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "version": "v1",
+      "jobName": "paragraph_1624514909662_-1992098887",
+      "id": "20210624-060829_1967071239_q_A2QES211K61624514800",
+      "dateCreated": "Jun 24, 2021 6:08:29 AM",
+      "dateSubmitted": "Jun 24, 2021 6:09:19 AM",
+      "dateStarted": "Jun 24, 2021 6:09:57 AM",
+      "dateFinished": "Jun 24, 2021 6:09:57 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 1000
+    },
+    {
+      "text": "",
+      "user": "venkatram@qubole.com",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "version": "v0",
+      "jobName": "paragraph_1624514917017_-516553106",
+      "id": "20210624-060837_2137935240_q_A2QES211K61624514800",
+      "dateCreated": "Jun 24, 2021 6:08:37 AM",
+      "status": "READY",
+      "progressUpdateIntervalMs": 1000
+    }
+  ],
+  "name": "run_qa",
+  "id": "A2QES211K61624514800",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {
+    "spark:shared_process": []
+  },
+  "config": {
+    "isZeppelinNotebookCronEnable": false,
+    "isDashboard": false,
+    "defaultLang": "pyspark"
+  },
+  "info": {
+    "runAllInProgress": false
+  },
+  "source": "FCN"
+}
